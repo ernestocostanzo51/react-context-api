@@ -1,16 +1,19 @@
-
+import budgetContext from './context/BudgetContext'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import ChiSiamo from './pages/ChiSiamo'
 import Prodotti from './pages/Prodotti'
 import DefLayout from './layout/autlet'
 import DetailsProd from './pages/DetailsProdotto'
+import { useState } from 'react'
 
 function App() {
   
+  const [budgetMode, setBudegtMode] = useState(false)
 
   return (
-     <BrowserRouter>
+    <budgetContext.Provider value={}>
+       <BrowserRouter>
      <Routes>
       <Route element={<DefLayout />}>
       <Route path="/" element={<HomePage/>} />
@@ -20,6 +23,8 @@ function App() {
       </Route>
      </Routes>
      </BrowserRouter>
+    </budgetContext.Provider>
+    
   )
 }
 

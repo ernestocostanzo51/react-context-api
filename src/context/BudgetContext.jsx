@@ -2,4 +2,4 @@ import { createContext } from "react";
 
 const budgetContext = createContext()
 
-export default budgetMode
+export default budgetContext
