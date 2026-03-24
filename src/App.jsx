@@ -11,8 +11,17 @@ function App() {
   
   const [budgetMode, setBudegtMode] = useState(false)
 
+const toggleBudgetMode = () => setBudegtMode(prev => !prev);
+
+ 
+  const getFilteredData = (dataArray) => {
+    if (budgetMode) {
+      return dataArray.filter(item => item.price <= 30);
+    }
+    return dataArray;
+  };
   return (
-    <budgetContext.Provider value={}>
+    <budgetContext.Provider value={{ budgetMode, toggleBudgetMode, getFilteredData }}>
        <BrowserRouter>
      <Routes>
       <Route element={<DefLayout />}>
